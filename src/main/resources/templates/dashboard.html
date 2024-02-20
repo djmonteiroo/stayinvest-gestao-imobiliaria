@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<div th:replace="fragmentos/head"></div>
+</head>
+
+<body>
+	<div id="app">
+
+		<!-- Menu Principal -->
+		<div th:replace="fragmentos/menu-principal"></div>
+
+		<div id="main">
+			<header class="mb-3">
+				<a href="#" class="burger-btn d-block d-xl-none"> <i
+					class="bi bi-justify fs-3"></i>
+				</a>
+			</header>
+
+			<div class="page-heading">
+				<h3>Visão Geral</h3>
+			</div>
+			<div class="page-content">
+				<section class="row">
+					<div class="col-12 col-lg-9">
+						<div class="row">
+							<div class="col-6 col-lg-3 col-md-6">
+								<div class="card">
+									<div class="card-body px-3 py-4-5">
+										<div class="row">
+											<div class="col-md-4">
+												<div class="stats-icon purple">
+													<i class="iconly-boldShow"></i>
+												</div>
+											</div>
+											<div class="col-md-8">
+												<h6 class="text-muted font-semibold">Profile Views</h6>
+												<h6 class="font-extrabold mb-0">112.000</h6>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-lg-3 col-md-6">
+								<div class="card">
+									<div class="card-body px-3 py-4-5">
+										<div class="row">
+											<div class="col-md-4">
+												<div class="stats-icon blue">
+													<i class="iconly-boldProfile"></i>
+												</div>
+											</div>
+											<div class="col-md-8">
+												<h6 class="text-muted font-semibold">Followers</h6>
+												<h6 class="font-extrabold mb-0">183.000</h6>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-lg-3 col-md-6">
+								<div class="card">
+									<div class="card-body px-3 py-4-5">
+										<div class="row">
+											<div class="col-md-4">
+												<div class="stats-icon green">
+													<i class="iconly-boldAdd-User"></i>
+												</div>
+											</div>
+											<div class="col-md-8">
+												<h6 class="text-muted font-semibold">Following</h6>
+												<h6 class="font-extrabold mb-0">80.000</h6>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-6 col-lg-3 col-md-6">
+								<div class="card">
+									<div class="card-body px-3 py-4-5">
+										<div class="row">
+											<div class="col-md-4">
+												<div class="stats-icon red">
+													<i class="iconly-boldBookmark"></i>
+												</div>
+											</div>
+											<div class="col-md-8">
+												<h6 class="text-muted font-semibold">Saved Post</h6>
+												<h6 class="font-extrabold mb-0">112</h6>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+
+								<section class="section">
+									<div class="row" id="table-hover-row">
+										<div class="col-12">
+											<div class="card">
+												<div class="card-header">
+													<div class="row">
+														<div class="col-sm text-en align-middle">
+															<h4>Imóveis Registrados</h4>
+														</div>
+														<div class="col-sm text-end">
+															<a th:href="registrar-imovel" type="button"
+																class="btn btn-primary text-end">Novo Imóvel</a>
+														</div>
+													</div>
+												</div>
+												<div class="card-content">
+
+													<div class="table-responsive">
+														<table class="table table-hover mb-0">
+															<thead>
+																<tr>
+																	<th>Id</th>
+																	<th>Nome do Imóvel</th>
+																	<th>Tipo</th>
+																	<th>Valor</th>
+																	<th>Ações</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr th:each="imovel : ${listaImoveis}">
+																	<td class="text-bold-500" th:text="${imovel.codigoImovel}"></td>
+<!-- 																	<td class="text-bold-500" th:text="${imovel.nmImovel}"></td> -->
+<!-- 																	<td class="text-bold-500" -->
+<!-- 																		th:text="${imovel.idTipoImovel}"></td> -->
+<!-- 																	<td class="text-bold-500" th:text="${imovel.vlImovel}"></td> -->
+																	<td>
+																		<a th:href="@{deletar/{id}(id=${imovel.codigoImovel})}">
+																			<svg xmlns="http://www.w3.org/2000/svg" width="16"
+																				height="16" fill="currentColor"
+																				class="bi bi-trash2-fill text-danger"
+																				viewBox="0 0 16 16">
+	 																			<path d="M2.037 3.225A.7.7 0 0 1 2 3c0-1.105 2.686-2 6-2s6 .895 6 2a.7.7 0 0 1-.037.225l-1.684 10.104A2 2 0 0 1 10.305 15H5.694a2 2 0 0 1-1.973-1.671zm9.89-.69C10.966 2.214 9.578 2 8 2c-1.58 0-2.968.215-3.926.534-.477.16-.795.327-.975.466.18.14.498.307.975.466C5.032 3.786 6.42 4 8 4s2.967-.215 3.926-.534c.477-.16.795-.327.975-.466-.18-.14-.498-.307-.975-.466z" />
+																			</svg>
+																		</a> 
+																		<a th:href="@{editar/{id}(id=${imovel.codigoImovel})}"> <svg
+																				xmlns="http://www.w3.org/2000/svg" width="16"
+																				height="16" fill="currentColor" class="bi bi-search"
+																				viewBox="0 0 16 16">
+								  												<path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+																			</svg>
+																		</a>
+																	</td>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12 col-xl-4">
+								<div class="card">
+									<div class="card-header">
+										<h4>Profile Visit</h4>
+									</div>
+									<div class="card-body">
+										<div class="row">
+											<div class="col-6">
+												<div class="d-flex align-items-center">
+													<svg class="bi text-primary" width="32" height="32"
+														fill="blue" style="width: 10px">
+                                                        <use
+															xlink:href="/assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
+                                                    </svg>
+													<h5 class="mb-0 ms-3">Europe</h5>
+												</div>
+											</div>
+											<div class="col-6">
+												<h5 class="mb-0">862</h5>
+											</div>
+											<div class="col-12">
+												<div id="chart-europe"></div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-6">
+												<div class="d-flex align-items-center">
+													<svg class="bi text-success" width="32" height="32"
+														fill="blue" style="width: 10px">
+                                                        <use
+															xlink:href="/assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
+                                                    </svg>
+													<h5 class="mb-0 ms-3">America</h5>
+												</div>
+											</div>
+											<div class="col-6">
+												<h5 class="mb-0">375</h5>
+											</div>
+											<div class="col-12">
+												<div id="chart-america"></div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-6">
+												<div class="d-flex align-items-center">
+													<svg class="bi text-danger" width="32" height="32"
+														fill="blue" style="width: 10px">
+                                                        <use
+															xlink:href="/assets/vendors/bootstrap-icons/bootstrap-icons.svg#circle-fill" />
+                                                    </svg>
+													<h5 class="mb-0 ms-3">Indonesia</h5>
+												</div>
+											</div>
+											<div class="col-6">
+												<h5 class="mb-0">1025</h5>
+											</div>
+											<div class="col-12">
+												<div id="chart-indonesia"></div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="col-12 col-xl-8">
+								<div class="card">
+									<div class="card-header">
+										<h4>Latest Comments</h4>
+									</div>
+									<div class="card-body">
+										<div class="table-responsive">
+											<table class="table table-hover table-lg">
+												<thead>
+													<tr>
+														<th>Name</th>
+														<th>Comment</th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr>
+														<td class="col-3">
+															<div class="d-flex align-items-center">
+																<div class="avatar avatar-md">
+																	<img src="/assets/images/faces/5.jpg">
+																</div>
+																<p class="font-bold ms-3 mb-0">Si Cantik</p>
+															</div>
+														</td>
+														<td class="col-auto">
+															<p class=" mb-0">Congratulations on your graduation!</p>
+														</td>
+													</tr>
+													<tr>
+														<td class="col-3">
+															<div class="d-flex align-items-center">
+																<div class="avatar avatar-md">
+																	<img src="/assets/images/faces/2.jpg">
+																</div>
+																<p class="font-bold ms-3 mb-0">Si Ganteng</p>
+															</div>
+														</td>
+														<td class="col-auto">
+															<p class=" mb-0">Wow amazing design! Can you make
+																another tutorial for this design?</p>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-12 col-lg-3">
+						<div class="card">
+							<div class="card-body py-4 px-5">
+								<div class="d-flex align-items-center">
+									<div class="avatar avatar-xl">
+										<img src="/assets/images/faces/1.jpg" alt="Face 1">
+									</div>
+									<div class="ms-3 name">
+										<h5 class="font-bold">John Duck</h5>
+										<h6 class="text-muted mb-0">@johnducky</h6>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header">
+								<h4>Recent Messages</h4>
+							</div>
+							<div class="card-content pb-4">
+								<div class="recent-message d-flex px-4 py-3">
+									<div class="avatar avatar-lg">
+										<img src="/assets/images/faces/4.jpg">
+									</div>
+									<div class="name ms-4">
+										<h5 class="mb-1">Hank Schrader</h5>
+										<h6 class="text-muted mb-0">@johnducky</h6>
+									</div>
+								</div>
+								<div class="recent-message d-flex px-4 py-3">
+									<div class="avatar avatar-lg">
+										<img src="/assets/images/faces/5.jpg">
+									</div>
+									<div class="name ms-4">
+										<h5 class="mb-1">Dean Winchester</h5>
+										<h6 class="text-muted mb-0">@imdean</h6>
+									</div>
+								</div>
+								<div class="recent-message d-flex px-4 py-3">
+									<div class="avatar avatar-lg">
+										<img src="/assets/images/faces/1.jpg">
+									</div>
+									<div class="name ms-4">
+										<h5 class="mb-1">John Dodol</h5>
+										<h6 class="text-muted mb-0">@dodoljohn</h6>
+									</div>
+								</div>
+								<div class="px-4">
+									<button
+										class='btn btn-block btn-xl btn-light-primary font-bold mt-3'>Start
+										Conversation</button>
+								</div>
+							</div>
+						</div>
+						<div class="card">
+							<div class="card-header">
+								<h4>Visitors Profile</h4>
+							</div>
+							<div class="card-body">
+								<div id="chart-visitors-profile"></div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+
+			<!-- rodapé -->
+			<div th:replace="fragmentos/rodape"></div>
+		</div>
+	</div>
+	<script
+		src="/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script src="/assets/js/bootstrap.bundle.min.js"></script>
+
+	<script src="/assets/vendors/apexcharts/apexcharts.js"></script>
+	<script src="/assets/js/pages/dashboard.js"></script>
+
+	<script src="/assets/js/main.js"></script>
+</body>
+
+</html>
