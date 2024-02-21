@@ -5,18 +5,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.stayinveste.lib.dto.ImovelDto;
 import com.stayinveste.service.CadastroImovelService;
 
 @Controller
+@RequestMapping("/registrar-imovel")
 public class CadastroImovelResource {
 
 	@Autowired
 	private CadastroImovelService service;
 
-	@GetMapping("/registrar-imovel")
+	@GetMapping
 	public ModelAndView chamarTela(final ImovelDto imovel) {
 		ModelAndView modelAndView = new ModelAndView("registrar-imovel");
 		modelAndView.addObject("imovel", imovel);

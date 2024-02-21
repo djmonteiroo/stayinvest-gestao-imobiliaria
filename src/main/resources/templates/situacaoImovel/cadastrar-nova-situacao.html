@@ -1,14 +1,14 @@
 <div th:fragment="cadastrar-novo-tipo">
     <div class="card-content">
         <div class="card-body">
-            <form th:action="@{/registrar/tipo-imovel/criar}" th:object="${tipoImovel}" method="post">
+            <form th:action="@{/registrar/situacao-imovel/criar}" th:object="${situacaoImovelDto}" method="post">
                 <div class="form-body">
                     <div class="row">
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="exampleInputNmTipoImovel">Título de Imóvel</label>
+                                <label for="exampleInputNmTipoImovel">Nome da Situacao</label>
                                 <div class="position-relative">
-                                    <input type="text" class="form-control" id="exampleInputNmTipoImovel" th:field="*{nmTipoImovel}" placeholder="Apartamento Duplex">
+                                    <input type="text" class="form-control" id="exampleInputNmTipoImovel" th:field="*{nmSituacaoImovel}" placeholder="Disponivel Para Venda">
                                     <div class="form-control-icon">
                                         <i class="bi bi-file-earmark-post"></i>
                                     </div>
@@ -18,9 +18,9 @@
 
                         <div class="col-12">
                             <div class="form-group">
-                                <label for="exampleInputTxDescricao">Detalhamento do tipo</label>
+                                <label for="exampleInputTxDescricao">Descrição da situacao</label>
                                 <div class="position-relative">
-                                    <input type="text" class="form-control" id="exampleInputTxDescricao" th:field="*{txDescricao}" placeholder="Descrição">
+                                    <input type="text" class="form-control" id="exampleInputTxDescricao" th:field="*{txDescricaoSituacao}" placeholder="Descrição">
                                     <div class="form-control-icon">
                                         <i class="bi bi-file-earmark-medical-fill"></i>
                                     </div>

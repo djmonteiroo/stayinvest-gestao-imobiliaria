@@ -38,4 +38,33 @@ public class TipoImovelService {
 		return mapper.comporListaSaida(repository.buscarTodos());
 
 	}
+
+	public void desabilitarTipoImovel(final Long idTipoImovel) {
+		try {
+			repository.desabilitarTipoImovel(idTipoImovel);
+			log.info("Operação realizada com sucesso!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void ativarTipoImovel(final Long idTipoImovel) {
+		try {
+			repository.ativarTipoImovel(idTipoImovel);
+			log.info("Operação realizada com sucesso!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	public void deletarTipoImovel(final Long idTipoImovel) {
+		try {
+			repository.deletarTipoImovel(idTipoImovel);
+			log.info("Operação realizada com sucesso!");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
