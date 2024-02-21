@@ -12,15 +12,6 @@ public class PaginaInicialResource {
 
 	@Autowired
 	private CadastroImovelService service;
-	
-//	@GetMapping("/")
-//	public ModelAndView dashboard() {
-//		ModelAndView dashboard = new ModelAndView("dashboard");
-//		dashboard.addObject("titulo", "Listagem de Imóveis");
-//		dashboard.addObject("listaImoveis", new ImovelDto());
-//
-//		return dashboard;
-//	}
 
 	@GetMapping("/")
 	public ModelAndView paginaInicial() {

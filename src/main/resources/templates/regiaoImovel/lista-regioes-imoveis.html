@@ -1,4 +1,4 @@
-<div th:fragment="lista-situacoes-imoveis">
+<div th:fragment="lista-regioes-imoveis">
 	<div class="row">
 		<div class="col-12">
 			<section class="section">
@@ -8,7 +8,7 @@
 							<div class="card-header">
 								<div class="row">
 									<div class="col-sm text-en align-middle">
-										<h4>Situações Registradas</h4>
+										<h4>Regiões Registradas</h4>
 									</div>
 								</div>
 							</div>
@@ -18,8 +18,7 @@
 										<thead>
 											<tr>
 												<th>Id</th>
-												<th>Situacao</th>
-												<th>Descrição</th>
+												<th>Região</th>
 												<th>Ativo</th>
 												<th>Data de Inclusão</th>
 												<th>Data de Alteração</th>
@@ -27,19 +26,17 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr th:each="situacaoImovel : ${lsSituacaoImovel}">
-												<td class="text-bold-500" th:text="${situacaoImovel.idSituacaoImovel}">
+											<tr th:each="regiaoImovel : ${lsRegiao}">
+												<td class="text-bold-500" th:text="${regiaoImovel.idRegiaoImovel}">
 												</td>
-												<td class="text-bold-500" th:text="${situacaoImovel.nmSituacaoImovel}">
+												<td class="text-bold-500" th:text="${regiaoImovel.nmRegiaoImovel}">
 												</td>
-												<td class="text-bold-500"
-													th:text="${situacaoImovel.txDescricaoSituacao}"></td>
-												<td class="text-bold-500" th:text="${situacaoImovel.inAtivo}"></td>
-												<td class="text-bold-500" th:text="${situacaoImovel.dtInclusao}"></td>
-												<td class="text-bold-500" th:text="${situacaoImovel.dtAlteracao}"></td>
+												<td class="text-bold-500" th:text="${regiaoImovel.inAtivo}"></td>
+												<td class="text-bold-500" th:text="${regiaoImovel.dtInclusao}"></td>
+												<td class="text-bold-500" th:text="${regiaoImovel.dtAlteracao}"></td>
 												<td>
 													<a
-														th:href="@{/registrar/situacao-imovel/desativar/{id}(id=${situacaoImovel.idSituacaoImovel})}">
+														th:href="@{/registrar/regiao-imovel/desativar/{id}(id=${regiaoImovel.idRegiaoImovel})}">
 														<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 															fill="currentColor" class="bi bi-trash2-fill text-secondary"
 															viewBox="0 0 16 16">
@@ -48,7 +45,7 @@
 														</svg>
 													</a>
 													<a
-														th:href="@{/registrar/situacao-imovel/ativar/{id}(id=${situacaoImovel.idSituacaoImovel})}">
+														th:href="@{/registrar/regiao-imovel/ativar/{id}(id=${regiaoImovel.idRegiaoImovel})}">
 														<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 															fill="currentColor" class="bi bi-check-all text-success"
 															viewBox="0 0 16 16">
@@ -57,7 +54,7 @@
 														</svg>
 													</a>
 													<a
-														th:href="@{/registrar/situacao-imovel/deletar/{id}(id=${situacaoImovel.idSituacaoImovel})}">
+														th:href="@{/registrar/regiao-imovel/deletar/{id}(id=${regiaoImovel.idRegiaoImovel})}">
 														<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
 															fill="currentColor" class="bi bi-x-lg text-danger"
 															viewBox="0 0 16 16">
