@@ -3,17 +3,17 @@ package com.stayinveste.resource;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.stayinveste.lib.dto.TipoImovelDto;
 import com.stayinveste.service.TipoImovelService;
 
-@Controller
+@RestController
 @RequestMapping("/registrar/tipo-imovel")
 public class TipoImovelResource {
 
@@ -21,19 +21,20 @@ public class TipoImovelResource {
 	private TipoImovelService tipoImovelService;
 
 	@GetMapping
-	public ModelAndView tipoImovelHome(final TipoImovelDto tipoImovelDto) {
-		ModelAndView modelAndView = new ModelAndView("tipoImovel/registro-tipo-imovel");
-		List<TipoImovelDto> lsTipoImovelDto = tipoImovelService.consultarTiposImoveis();
-		modelAndView.addObject("lsTipoImovel", lsTipoImovelDto);
-		modelAndView.addObject("tipoImovel", new TipoImovelDto());
-		return modelAndView;
+	public List<TipoImovelDto> tipoImovelHome(final TipoImovelDto tipoImovelDto) {
+//		ModelAndView modelAndView = new ModelAndView("tipoImovel/registro-tipo-imovel");
+		return tipoImovelService.consultarTiposImoveis();
+//		modelAndView.addObject("lsTipoImovel", lsTipoImovelDto);
+//		modelAndView.addObject("tipoImovel", new TipoImovelDto());
+//		return modelAndView;
 	}
 
 	@PostMapping("/criar")
 	public ModelAndView registrarTipoImovel(final TipoImovelDto tipoImovelDto) {
 
 		tipoImovelService.criarTipoImovel(tipoImovelDto);
-		return tipoImovelHome(tipoImovelDto);
+//		return tipoImovelHome(tipoImovelDto);
+		return null;
 	}
 
 	@GetMapping("/desativar/{idTipoImovel}")

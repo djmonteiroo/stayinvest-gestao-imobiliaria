@@ -1,9 +1,6 @@
 package com.stayinveste.lib.dto;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,11 +22,7 @@ public class TipoImovelDto implements Serializable {
 	private Long idTipoImovel;
 	private String nmTipoImovel;
 	private String txDescricao;
-	private Boolean inAtivo;
-	
-	@DateTimeFormat(pattern = "dd/MM/YYYY hh:mm z")
-	private LocalDateTime dtInclusao;
-	
-	@DateTimeFormat(pattern = "dd/MM/YYYY hh:mm z")
-	private LocalDateTime dtAlteracao;
+	private String inAtivo;
+	private String dtInclusao;
+	private String dtAlteracao;
 }

@@ -1,8 +1,10 @@
 package com.stayinveste.mapper;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 
@@ -31,14 +33,25 @@ public class TipoImovelMapper {
 			tipoImovelDto.setNmTipoImovel(tipo.getNmTipoImovel());
 			tipoImovelDto.setTxDescricao(tipo.getTxDescricao());
 			if(tipo.getInAtivo() == 1) {
-				tipoImovelDto.setInAtivo(Boolean.TRUE);
+				tipoImovelDto.setInAtivo("Sim");
 			}else {
-				tipoImovelDto.setInAtivo(Boolean.FALSE);
+				tipoImovelDto.setInAtivo("Não");
 			}
-			tipoImovelDto.setDtInclusao(tipo.getDtInclusao());
-			tipoImovelDto.setDtAlteracao(tipo.getDtAlteracao());
+			tipoImovelDto.setDtInclusao(formatarDataHora(tipo.getDtInclusao()));
+			if(Objects.nonNull(tipo.getDtAlteracao()))
+				tipoImovelDto.setDtAlteracao(formatarDataHora(tipo.getDtAlteracao()));
+			else {
+				tipoImovelDto.setDtAlteracao("");
+			}
 			lsTipoImovelDto.add(tipoImovelDto);
 		});
 		return lsTipoImovelDto;
+	}
+	
+	private String formatarDataHora(LocalDateTime data) {
+        
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+        return data.format(dateTimeFormatter);
+        
 	}
 }

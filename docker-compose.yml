@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: admin
+      MYSQL_DATABASE: stayInvestDb
+      MYSQL_USER: stayInvest
+      MYSQL_PASSWORD: Admin
+      MYSQL_INITDB_ADDITIONAL_CONFIG: "sql_mode=''"
+    ports:
+      - "3306:3306"

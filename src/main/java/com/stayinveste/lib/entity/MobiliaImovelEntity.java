@@ -23,18 +23,18 @@
 //@Builder
 //@NoArgsConstructor
 //@AllArgsConstructor
-//@Table(name = "estado_imovel")
-//public class EstadoUFEntity {
+//@Table(name = "mobilia_imovel")
+//public class MobiliaImovelEntity {
 //
 //	@Id
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)
-//	private Long idEstadoImovel;
+//	private Long idMobiliaImovel;
 //
-//	@NotEmpty(message = "Estado de localização não pode ser vazio")
-//	private String nmEstadoImovel;
+//	@NotEmpty(message = "Tipo de Mobilia nao pode ser vazio")
+//	private String nmMobiliaImovel;
 //	
-//	@NotEmpty(message = "UF do estado não pode ser nulo")
-//	private String ufEstado;
+//	@NotEmpty(message = "Informe uma descrição")
+//	private String txDescricao;
 //
 //	private Integer inAtivo;
 //

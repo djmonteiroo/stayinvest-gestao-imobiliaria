@@ -35,6 +35,7 @@ public class TipoImovelService {
 	}
 
 	public List<TipoImovelDto> consultarTiposImoveis() {
+		log.info("Realizando consulta de tipo de imoveis cadastrados.");
 		return mapper.comporListaSaida(repository.buscarTodos());
 
 	}
